@@ -1,5 +1,3 @@
-import bindings.types; //Types is not avail from core.stdc.config for bare-metal
-
 #include <libopencm3/stm32/rcc.h>
 #include <libopencm3/stm32/gpio.h>
 

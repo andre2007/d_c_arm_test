@@ -1,9 +1,11 @@
 extern(C) __gshared void _d_dso_registry(void* arg) {}
 
+@nogc:
+
 import gpio;
 import freertos;
 
-export extern(C) int main()
+int main()
 {
 	gpio_setup();
 

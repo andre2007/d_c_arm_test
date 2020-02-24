@@ -1,5 +1,3 @@
-import bindings.types; //Types is not avail from core.stdc.config for bare-metal
-
 @nogc:
 
 #include <FreeRTOS.h>

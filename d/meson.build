@@ -22,6 +22,8 @@ freertos_binding = dpp.process(
     ]
 )
 
+druntime_dep = subproject('minimal-druntime').get_variable('druntime_dep')
+
 d_dep = library(
     'D code part',
     [
@@ -30,4 +32,5 @@ d_dep = library(
         freertos_binding,
     ],
     include_directories: ['source', 'source/bindings'],
+    dependencies: [druntime_dep],
 )
