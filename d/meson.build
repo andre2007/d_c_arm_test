@@ -53,9 +53,8 @@ freertos_druntime_backend = [
 ]
 
 
-druntime_dep = subproject('druntime').get_variable('druntime_dep')
-druntime_lib = library(
-    'druntime',
+druntime_dep_orig = subproject('druntime').get_variable('druntime_dep')
+druntime_dep = declare_dependency(
     sources: [
         freertos_druntime_backend,
     ],
@@ -63,7 +62,7 @@ druntime_lib = library(
         './freertos_druntime_backend/',
     ),
     dependencies: [
-        druntime_dep,
+        druntime_dep_orig,
         freertos_d_dep,
         picolibc_dep,
     ],
@@ -86,9 +85,9 @@ d_dep = declare_dependency(
     ],
     dependencies: [
         freertos_d_dep,
+        druntime_dep,
     ],
     link_with: [
-        druntime_lib,
         freertos_lib,
     ]
 )
